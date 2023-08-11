@@ -121,7 +121,7 @@ class Gitlab {
     let repoId = getRepo().id || this.namesToIds.repos[getRepo().fullName];
     return new Promise((resolve, reject) => {
         return $.getJSON(
-            `${this.baseUrl}/projects/${repoId}/repository/tree?ref=${getBranch()}&recursive=true&${this.tokenParam}`, {}
+            `${this.baseUrl}/projects/${repoId}/repository/tree?ref=${getBranch()}&recursive=true&per_page=100&${this.tokenParam}`, {}
           )
           .then(resolve)
           .fail(reject)
